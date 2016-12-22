@@ -4,6 +4,7 @@
   <audio src="<%= audio_path('ergebnis.mp3') %>" class="audio2"></audio>
   <audio src="<%= audio_path('hoho.mp3') %>" class="audio3"></audio>
   <audio src="<%= audio_path('bells.mp3') %>" class="audio4" autoplay loop></audio>
+  <audio src="<%= audio_path('falsch.mp3') %>" class="audio5"></audio>
   <hidden id="ergebnis" style="display: none">0</hidden>
 
   <div style="text-align: center; color: #EFEFEF; margin-top: 2em ">
@@ -133,13 +134,14 @@
   $( "#form1" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz1").fadeOut(600);
-    $('.audio2')[0].play();
     if( $('input[name=optionsRadios1]:checked', '#form1').val() == $('#antwort1').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
        var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -149,13 +151,14 @@
   $( "#form2" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz2").fadeOut(600);
-    $('.audio2')[0].play();
     if( $('input[name=optionsRadios2]:checked', '#form2').val() == $('#antwort2').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
       var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -165,13 +168,15 @@
   $( "#form3" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz3").fadeOut(600);
-    $('.audio2')[0].play();
+
     if( $('input[name=optionsRadios3]:checked', '#form3').val() == $('#antwort3').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
       var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -181,13 +186,15 @@
   $( "#form4" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz4").fadeOut(600);
-    $('.audio2')[0].play();
+
     if( $('input[name=optionsRadios4]:checked', '#form4').val() == $('#antwort4').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
       var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -197,13 +204,15 @@
   $( "#form5" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz5").fadeOut(600);
-    $('.audio2')[0].play();
+
     if( $('input[name=optionsRadios5]:checked', '#form5').val() == $('#antwort5').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
       var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -213,13 +222,15 @@
   $( "#form6" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz6").fadeOut(600);
-    $('.audio2')[0].play();
+
     if( $('input[name=optionsRadios6]:checked', '#form6').val() == $('#antwort6').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
       var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -229,13 +240,15 @@
   $( "#form7" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz7").fadeOut(600);
-    $('.audio2')[0].play();
+
     if( $('input[name=optionsRadios7]:checked', '#form7').val() == $('#antwort7').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
       var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -245,13 +258,15 @@
   $( "#form8" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz8").fadeOut(600);
-    $('.audio2')[0].play();
+
     if( $('input[name=optionsRadios8]:checked', '#form8').val() == $('#antwort8').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
       var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -261,13 +276,15 @@
   $( "#form9" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz9").fadeOut(600);
-    $('.audio2')[0].play();
+
     if( $('input[name=optionsRadios9]:checked', '#form9').val() == $('#antwort9').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
       var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -277,13 +294,14 @@
   $( "#form10" ).submit(function( event ) {
     event.preventDefault();
     $("#quiz10").fadeOut(600);
-    $('.audio2')[0].play();
     if( $('input[name=optionsRadios10]:checked', '#form10').val() == $('#antwort10').text() ) {
+      $('.audio2')[0].play();
       $("#richtig").delay(600).fadeIn(600);
       $("#richtig").delay(1600).fadeOut(600);
       var ergebnis = parseInt($('#ergebnis').text());
       $('#ergebnis').text(ergebnis +1);
     } else {
+      $('.audio5')[0].play();
       $("#falsch").delay(600).fadeIn(600);
       $("#falsch").delay(1600).fadeOut(600);
     }
@@ -294,8 +312,11 @@
       var ergebnis = $('#ergebnis').text();
       if( ergebnis > 6 ) {
         $("#pos_result").text('Du hast ' + ergebnis + ' von 10 Fragen richtig beantwortet. Ich kann endlich weiter. Dein Geschenk habe ich meinem guten Freund Matthias in die Tasche gesteckt.')
-        $("#fertig").delay(1600).fadeIn(600);
-        $('.audio3')[0].play();
+        $("#fertig").delay(2000).fadeIn(600);
+        setTimeout(function(){
+          $('.audio3')[0].play();
+        }, 2500);
+
       } else {
         $("#neg_result").text('Du hast ' + ergebnis + ' von 10 Fragen richtig beantwortet. Ich sitze immer noch fest, du musst es nochmal versuchen.')
         $("#nochmal").delay(1600).fadeIn(600);
@@ -303,7 +324,6 @@
         setTimeout(function(){
           location.reload(true);
         }, 8500);
-
       }
     });
 </script>
