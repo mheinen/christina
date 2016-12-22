@@ -113,12 +113,11 @@
 <script>
 
   $(document).ready(function(){
-    $(document).trigger('loaded');
+    if( $("#step1").is(":visible") ) {
+      $('.audio4')[0].play();
+    }
   });
 
-  $(document).on('loaded', function() {
-    $('.audio4')[0].play();
-  });
 
   $(document).ready(function(){
     $("#step1").click(function(){
