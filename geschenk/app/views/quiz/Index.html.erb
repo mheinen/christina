@@ -1,0 +1,309 @@
+<div>
+
+  <audio src="<%= audio_path('jingle.mp3') %>" class="audio"></audio>
+  <audio src="<%= audio_path('ergebnis.mp3') %>" class="audio2"></audio>
+  <audio src="<%= audio_path('hoho.mp3') %>" class="audio3"></audio>
+  <audio src="<%= audio_path('bells.mp3') %>" class="audio4" autoplay loop></audio>
+  <hidden id="ergebnis" style="display: none">0</hidden>
+
+  <div style="text-align: center; color: #EFEFEF; margin-top: 2em ">
+    <h1>HO HO HO</h1>
+    <h2>Fröhliche Weihnachten Christina, wünscht dir der Weihnachtsmann!</h2>
+  </div>
+
+  <div class="container" style="margin-top: 2em">
+    <div class="row">
+      <div class="col-sm-3">
+
+      </div>
+      <div class="col-sm-6">
+
+        <div id="step1">
+          <div class="alert alert-info" role="alert" style="text-align: center">
+            <strong>Hol dir hier dein Geschenk!</strong> <br>
+            <i class="fa fa-gift fa-5x faa-shake animated" aria-hidden="true" style="color: red"></i>
+          </div>
+        </div>
+
+        <div style="display: none" id="step2">
+          <div class="alert alert-info" role="alert">
+            <strong>Zu früh gefreut! </strong> <br>Ich beschere gerade Günther Jauch und der lässt mich nicht gehen, bevor
+            ich seine kniffligen Fragen beantwortet habe, vorher kann ich dir dein Gechenk nicht bringen <i class="fa fa-frown-o" aria-hidden="true"></i>.
+          </div>
+        </div>
+
+        <div style="display: none" id="step3" >
+          <div class="alert alert-info" role="alert" style="text-align: center">
+            Klicke hier <i class="fa fa-user-o fa-4x faa-bounce animated" aria-hidden="true" style="color: red"></i> um mir zu helfen.
+          </div>
+        </div>
+
+        <div style="display: none" id="richtig" >
+          <div class="alert alert-success" role="alert" style="text-align: center">
+            Ich glaube das stimmt so.
+          </div>
+        </div>
+
+        <div style="display: none" id="falsch" >
+          <div class="alert alert-danger" role="alert" style="text-align: center">
+            Daran kann ich mich gar nicht erinnern.
+          </div>
+        </div>
+
+        <div style="display: none" id="fertig" >
+          <div class="alert alert-info" role="alert" style="text-align: center">
+            <div id="pos_result"></div>
+          </div>
+        </div>
+
+        <div style="display: none" id="nochmal" >
+          <div class="alert alert-info" role="alert" style="text-align: center">
+            <div id="neg_result"></div>
+          </div>
+        </div>
+
+
+        <% @aufgaben.each do |f| %>
+
+            <hidden id="antwort<%= f.id %>" style="display: none"><%= f.antwort %></hidden>
+
+            <div id="quiz<%= f.id %>" style="display: none">
+              <div class="alert alert-info" role="alert">
+                <form id="form<%= f.id %>">
+                  <div class="form-group">
+                    <%= f.frage %>
+                    <hr>
+                    <fieldset class="form-group">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optionsRadios<%= f.id %>" id="optionsRadios1" value="<%= f.option1 %>">
+                          <%= f.option1 %>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optionsRadios<%= f.id %>" id="optionsRadios2" value="<%= f.option2 %>">
+                          <%= f.option2 %>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optionsRadios<%= f.id %>" id="optionsRadios3" value="<%= f.option3 %>">
+                          <%= f.option3 %>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Versuchen</button>
+                </form>
+              </div>
+            </div>
+
+        <% end %>
+
+
+      </div>
+
+      <div class="col-sm-3">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#step1").click(function(){
+      $("#step1").fadeOut(600);
+      $("#step2").delay(800).fadeIn();
+      $("#step3").delay(7000).fadeIn();
+    });
+  });
+
+  $(document).ready(function(){
+    $("#step3").click(function(){
+      $("#step2").fadeOut(600);
+      $("#step3").fadeOut(600);
+      $('.audio4')[0].pause();
+      $('.audio')[0].play();
+      $("#quiz1").delay(1600).fadeIn(600);
+    });
+  });
+
+  $( "#form1" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz1").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios1]:checked', '#form1').val() == $('#antwort1').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+       var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $("#quiz2").delay(3500).fadeIn(600);
+  });
+
+  $( "#form2" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz2").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios2]:checked', '#form2').val() == $('#antwort2').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+      var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $("#quiz3").delay(3500).fadeIn(600);
+  });
+
+  $( "#form3" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz3").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios3]:checked', '#form3').val() == $('#antwort3').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+      var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $("#quiz4").delay(3500).fadeIn(600);
+  });
+
+  $( "#form4" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz4").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios4]:checked', '#form4').val() == $('#antwort4').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+      var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $("#quiz5").delay(3500).fadeIn(600);
+  });
+
+  $( "#form5" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz5").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios5]:checked', '#form5').val() == $('#antwort5').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+      var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $("#quiz6").delay(3500).fadeIn(600);
+  });
+
+  $( "#form6" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz6").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios6]:checked', '#form6').val() == $('#antwort6').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+      var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $("#quiz7").delay(3500).fadeIn(600);
+  });
+
+  $( "#form7" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz7").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios7]:checked', '#form7').val() == $('#antwort7').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+      var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $("#quiz8").delay(3500).fadeIn(600);
+  });
+
+  $( "#form8" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz8").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios8]:checked', '#form8').val() == $('#antwort8').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+      var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $("#quiz9").delay(3500).fadeIn(600);
+  });
+
+  $( "#form9" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz9").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios9]:checked', '#form9').val() == $('#antwort9').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+      var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $("#quiz10").delay(3500).fadeIn(600);
+  });
+
+  $( "#form10" ).submit(function( event ) {
+    event.preventDefault();
+    $("#quiz10").fadeOut(600);
+    $('.audio2')[0].play();
+    if( $('input[name=optionsRadios10]:checked', '#form10').val() == $('#antwort10').text() ) {
+      $("#richtig").delay(600).fadeIn(600);
+      $("#richtig").delay(1600).fadeOut(600);
+      var ergebnis = parseInt($('#ergebnis').text());
+      $('#ergebnis').text(ergebnis +1);
+    } else {
+      $("#falsch").delay(600).fadeIn(600);
+      $("#falsch").delay(1600).fadeOut(600);
+    }
+    $(document).trigger('finished');
+  });
+
+    $(document).on('finished', function() {
+      var ergebnis = $('#ergebnis').text();
+      if( ergebnis > 6 ) {
+        $("#pos_result").text('Du hast ' + ergebnis + ' von 10 Fragen richtig beantwortet. Ich kann endlich weiter. Dein Geschenk habe ich meinem guten Freund Matthias in die Tasche gesteckt.')
+        $("#fertig").delay(1600).fadeIn(600);
+        $('.audio3')[0].play();
+      } else {
+        $("#neg_result").text('Du hast ' + ergebnis + ' von 10 Fragen richtig beantwortet. Ich sitze immer noch fest, du musst es nochmal versuchen.')
+        $("#nochmal").delay(1600).fadeIn(600);
+        $("#nochmal").delay(5000).fadeOut(600);
+        setTimeout(function(){
+          location.reload(true);
+        }, 8500);
+
+      }
+    });
+</script>
