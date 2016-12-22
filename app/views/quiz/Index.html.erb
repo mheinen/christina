@@ -112,15 +112,11 @@
 
 <script>
 
-  $(document).ready(function(){
-    if( $("#step1").is(":visible") ) {
-      $('.audio4')[0].play();
-    }
-  });
 
 
   $(document).ready(function(){
     $("#step1").click(function(){
+      $('.audio4')[0].play();
       $("#step1").fadeOut(600);
       $("#step2").delay(800).fadeIn();
       $("#step3").delay(7000).fadeIn();

@@ -68,8 +68,8 @@
       <file leaf-file-name="Index.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/quiz/Index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -369,12 +369,12 @@
       <workItem from="1482347296916" duration="1248000" />
       <workItem from="1482348649543" duration="16975000" />
       <workItem from="1482398371751" duration="2617000" />
-      <workItem from="1482401342343" duration="1567000" />
+      <workItem from="1482401342343" duration="1719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22407000" />
+    <option name="totallyTimeSpent" value="22559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -629,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/quiz/Index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding />
         </state>
       </provider>
