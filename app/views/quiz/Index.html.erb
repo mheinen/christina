@@ -3,7 +3,7 @@
   <audio src="<%= audio_path('jingle.mp3') %>" class="audio"></audio>
   <audio src="<%= audio_path('ergebnis.mp3') %>" class="audio2"></audio>
   <audio src="<%= audio_path('hoho.mp3') %>" class="audio3"></audio>
-  <audio src="<%= audio_path('bells.mp3') %>" class="audio4" autoplay loop></audio>
+  <audio src="<%= audio_path('bells.mp3') %>" class="audio4"  loop></audio>
   <audio src="<%= audio_path('falsch.mp3') %>" class="audio5"></audio>
   <hidden id="ergebnis" style="display: none">0</hidden>
 
@@ -113,6 +113,11 @@
 </div>
 
 <script>
+
+  $(document).ready(function(){
+    $('.audio4')[0].play();
+  });
+
   $(document).ready(function(){
     $("#step1").click(function(){
       $("#step1").fadeOut(600);
