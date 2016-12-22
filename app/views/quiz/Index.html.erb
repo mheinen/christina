@@ -311,14 +311,12 @@
   });
 
     $(document).on('finished', function() {
+
       var ergebnis = $('#ergebnis').text();
       if( ergebnis > 6 ) {
         $("#pos_result").text('Du hast ' + ergebnis + ' von 10 Fragen richtig beantwortet. Ich kann endlich weiter. Dein Geschenk habe ich meinem guten Freund Matthias in die Tasche gesteckt.')
         $("#fertig").delay(2000).fadeIn(600);
-        setTimeout(function(){
-          $('.audio3')[0].play();
-        }, 2500);
-
+        $('.audio3')[0].play();
       } else {
         $("#neg_result").text('Du hast ' + ergebnis + ' von 10 Fragen richtig beantwortet. Ich sitze immer noch fest, du musst es nochmal versuchen.')
         $("#nochmal").delay(1600).fadeIn(600);
